@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="header">
+        <div class="mini-demon">
+            <h2 id="enterGrid">Enter Your Grid Size(max 100)</h2>
+
+            <label for="size">size:</label>
+            <input type="text" id="answer" name="userInput" placeholder="enter size" onchange="changeSize(this.value)" />
+        
+            <button class="button-os" type="submit">Change size</button>
+        </div>
+        
+    </div>
+    
+     <div id="gridContainer" class="container">
+    
+        </div>
+  
+        
+
+
+
+
+
+
+<script>
+
+
+
+
+function createBox(input) {
+    var container = document.getElementById("gridContainer")
+    let oldBoxes = document.querySelectorAll('div.box')
+    oldBoxes.forEach((box) => 
+       box.remove())
+
+    tNumbox = input * input
+    container.style.gridTemplateColumns = `repeat(${input} , 1fr)`;
+    for (var i = 0; i < tNumbox; i++) {
+        var box = document.createElement("div");
+        box.className = "box";
+        container.appendChild(box)
+
+        const boxes = document.querySelectorAll('div.box');
+        boxes.forEach(box => {
+                box.addEventListener('mouseenter', mouseOver);
+                function mouseOver() {
+                    box.setAttribute('style', 'background-color: yellow;')
+                };
+            });
+            }
+
+};
+
+function changeSize(input) {
+    createBox(input)
+} 
+
+
+
+ 
+
+</script>
+
+
+
+</body>
+</html>
